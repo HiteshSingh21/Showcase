@@ -12,6 +12,7 @@ from app.models.portfolio import Portfolio
 # --- YOUR SOUL INJECTION START ---
 from app.chat import router as chat_router 
 # --- YOUR SOUL INJECTION END ---
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -19,16 +20,8 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """
     Application lifespan handler.
-    
-    logger.info("Showcase AI: Application starting up")
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
-    yield
-    logger.info("Showcase AI: Application shutting down")
-    await engine.dispose()
-    
     """
-logger.info("Showcase AI: Initializing Infrastructure...")
+    logger.info("Showcase AI: Initializing Infrastructure...")
     SQLModel.metadata.create_all(engine)
     yield 
     logger.info(" Showcase AI: Shutting down safely")

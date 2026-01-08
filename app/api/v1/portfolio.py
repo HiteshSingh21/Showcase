@@ -3,7 +3,8 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 from app.api import dependencies
 from app.core.security import verify_firebase_token
-from app.models.portfolio import Portfolio, PortfolioUpdate
+from app.models.portfolio import Portfolio
+from app.schemas.portfolio import PortfolioUpdate
 
 router = APIRouter()
 

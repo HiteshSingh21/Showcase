@@ -36,7 +36,7 @@ async def process_resume_task(job_id: str, file: UploadFile, user_id: str):
             db.refresh(new_portfolio)
             
             duration = time.time() - start_time
-           logger.info(f"Job {job_id}: Successfully completed in {duration:.2f}s")
+            logger.info(f"Job {job_id}: Successfully completed in {duration:.2f}s")
 
         except Exception as e:
             db.rollback()
